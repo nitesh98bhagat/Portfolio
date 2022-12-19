@@ -14,48 +14,163 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import dataNew from "../data";
 import Link from "next/link";
-import { SiVisualstudiocode } from "react-icons/si";
-import { AiFillMediumSquare } from "react-icons/ai";
-import { BsFillImageFill, BsTwitter, BsYoutube } from "react-icons/bs";
+import { SiFacebook, SiVisualstudiocode } from "react-icons/si";
+import {
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillMediumSquare,
+  AiFillTwitterCircle,
+} from "react-icons/ai";
+import {
+  BsFacebook,
+  BsFillImageFill,
+  BsTwitter,
+  BsYoutube,
+} from "react-icons/bs";
 import { MdStore } from "react-icons/md";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const tabBarView = [
+    <ProjectPage key={"project"} />,
+    <EducationPage key={"education"} />,
+    <h1 key={"technologies"}>Technologies</h1>,
+  ];
+
   return (
-    <div className="flex flex-col justify-center  items-center p-5 border-x-2">
-      <div className="flex items-center space-x-3">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
-          alt="nitesh bhagat"
-          className="w-40 rounded-full"
-        />
-        <div className="flex-col w-96">
-          <h1 className="text-3xl font-bold">Nitesh Bhagat</h1>
-          <p className="text-base p-2">
-          Hello there, I`m Front-end Engineer who has a bit of experenice in the frontend field.
-          All project done by me are listed here.</p>
+    <div
+      style={{
+        backgroundImage: `url(https://media.istockphoto.com/id/1224388366/vector/colorful-geometric-background.jpg?s=612x612&w=0&k=20&c=0MH3nZPyJnqL41pnXHnejHlUqFBPmVVKt8dCl9tbaOs=)`,
+      }}
+      className="flex flex-col h-screen justify-start   items-center   border-x-2"
+    >
+      <div className="flex flex-col">
+        <div className="flex items-center space-x-3 bg-stone-50 p-5">
+          <div className="w-44 h-44 relative rounded-full">
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
+              alt="nitesh bhagat"
+              layout="fill" // required
+              objectFit="cover"
+              className="rounded-full"
+            />
+          </div>
+
+          <div className="flex-col w-96">
+            <h1 className="text-3xl font-bold">Nitesh Bhagat</h1>
+            <h1 className="text-base font-base text-slate-500">
+              React, Next, Flutter{" "}
+            </h1>
+            <p className="text-base p-2">
+              Hello there, I`m Front-end Engineer who has a bit of experenice in
+              the frontend field. All project done by me are listed here.
+            </p>
+            <div className="flex text-3xl text-slate-600">
+              <SiFacebook />
+              <AiFillInstagram />
+              <AiFillTwitterCircle />
+              <AiFillLinkedin />
+            </div>
+          </div>
         </div>
+        {/* Tab bar */}
+        <div className="flex flex-row justify-start items-end w-full  bg-stone-50  ">
+          {["Project", "Education", "Technologies"].map((e, i) => (
+            <p
+              key={e}
+              onClick={() => setCurrentIndex(i)}
+              className={`
+              text-lg font-normal border-b-2 p-3 cursor-pointer
+              ${
+                currentIndex === i
+                  ? "text-teal-700   border-teal-500 font-medium"
+                  : "text-slate-700"
+              }`}
+            >
+              {e}
+            </p>
+          ))}
+          <div className="flex-1 border-b-2"></div>
+        </div>
+
+        {/* menu section */}
+
+        {tabBarView[currentIndex]}
       </div>
+    </div>
+  );
+}
 
-      <div className="grid grid-cols-3 m-10 gap-4">
-        <ProjectTiile
-          title={"VSCODE Clone"}
-          link="/vscode"
-          icon={<SiVisualstudiocode />}
-        />
-        <ProjectTiile
-          title={"YouTube Clone"}
-          link="/vscode"
-          icon={<BsYoutube />}
-        />
-        <ProjectTiile
-          title={"Medium Clone"}
-          link="/blog"
-          icon={<AiFillMediumSquare />}
-        />
-        <ProjectTiile title={"E-commerce"} link="/store" icon={<MdStore />} />
-        <ProjectTiile title={"Twitter clone"} link="/store" icon={<BsTwitter />} />
+function ProjectPage() {
+  return (
+    <div className="grid grid-cols-3  gap-4 text-teal-500 bg-stone-50 py-5">
+      <ProjectTiile
+        title={"VSCODE Clone"}
+        link="/vscode"
+        icon={<SiVisualstudiocode />}
+      />
+      <ProjectTiile
+        title={"YouTube Clone"}
+        link="/vscode"
+        icon={<BsYoutube />}
+      />
+      <ProjectTiile
+        title={"Medium Clone"}
+        link="/blog"
+        icon={<AiFillMediumSquare />}
+      />
+      <ProjectTiile title={"E-commerce"} link="/store" icon={<MdStore />} />
+      <ProjectTiile
+        title={"Twitter clone"}
+        link="/store"
+        icon={<BsTwitter />}
+      />
 
-        {/* BsTwitter */}
+      {/* BsTwitter */}
+    </div>
+  );
+}
+
+function EducationPage() {
+  return (
+    <div className="flex flex-col w-full">
+      <EducationTle
+        year={"2004-2014"}
+        school="Vidya Vikash High School Garifa"
+        degree={"Secondary Education"}
+      />
+      <EducationTle
+        year={"2004-2014"}
+        school="Vidya Vikash High School Garifa"
+        degree={"Secondary Education"}
+      />
+      <EducationTle
+        year={"2004-2014"}
+        school="Vidya Vikash High School Garifa"
+        degree={"Secondary Education"}
+      />
+    </div>
+  );
+}
+
+function EducationTle({ school, year, degree, subtitle }) {
+  return (
+    <div className="flex bg-stone-50 p-5 space-x-8 border-b border-slate-200">
+      <div className="flex flex-col ">
+        <span class="font-semibold title-font text-gray-700">YEAR</span>
+        <span class="mt-1 text-gray-500 text-sm">{year ?? "2004-2014"}</span>
+      </div>
+      <div className="flex flex-col ">
+        <h2 class="text-xl font-medium text-gray-900 title-font w-[70vh]">
+          {degree ?? "Lorem ipsum dolor sit amet."}
+        </h2>
+        <span class="font-semibold title-font text-gray-700">
+          {school ?? "YEAR"}
+        </span>
+        <p className="text-base w-[70vh] ">{subtitle}</p>
       </div>
     </div>
   );
@@ -64,7 +179,7 @@ export default function HomePage() {
 function ProjectTiile({ title, icon, link }) {
   return (
     <Link href={link}>
-      <div className="flex flex-col items-center cursor-pointer text-6xl hover:bg-slate-50 border p-5 shadow-md rounded-md">
+      <div className="flex flex-col items-center cursor-pointer text-6xl hover:bg-white  p-5 shadow-md rounded-md">
         {icon ?? <BsFillImageFill />}
         <p className="text-base p-2">{title ?? "Vs Code Clone"}</p>
       </div>
