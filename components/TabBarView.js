@@ -9,7 +9,7 @@ export function OverviewTab() {
   return (
     <div className="px-5  ">
       <h1 className="text-2xl my-4 font-bold">About School</h1>
-     
+
       <p className="text-base text-slate-600 ">
         This seems to be the driving force when Shri R.N. Singh Memorial High
         School came to existence. The school was founded in 1963 by Ms Triveni
@@ -23,7 +23,7 @@ export function OverviewTab() {
       </p>
       {/* <hr className="my-2" /> */}
       {/* From principle desk */}
-      <h1 className="text-2xl my-8 font-bold">From the Principal's Desk</h1>
+      <h1 className="text-2xl my-8 font-bold">From the Principal`s Desk</h1>
       <div className="flex flex-col bg-slate-100  p-5 rounded-xl shadow-md my-5">
         <div className="flex flex-row items-center">
           <img
@@ -33,8 +33,16 @@ export function OverviewTab() {
           />
           <p className="text-2xl font-semibold p-2">Mr. Bikash Mondal</p>
         </div>
-        <p className="py-2">A warm welcome to each one who visits the Don Bosco School Park Circus website. It is through this medium that we offer you an insight into the lives and activities of our students and members of the staff. Our school is doing its part by instilling good moral values in our boys. At the same time, we are incorporating the use of technology into our teaching methods to enable our boys to be well equipped to understand as well as take on any challenges they may face as they step out into an ever evolving world.</p>
-       
+        <p className="py-2">
+          A warm welcome to each one who visits the Don Bosco School Park Circus
+          website. It is through this medium that we offer you an insight into
+          the lives and activities of our students and members of the staff. Our
+          school is doing its part by instilling good moral values in our boys.
+          At the same time, we are incorporating the use of technology into our
+          teaching methods to enable our boys to be well equipped to understand
+          as well as take on any challenges they may face as they step out into
+          an ever evolving world.
+        </p>
       </div>
 
       {/* highlight */}
@@ -56,6 +64,7 @@ export function OverviewTab() {
           "Additional Extracurricular activities",
         ].map((e) => (
           <ContactPill
+            key={e}
             title={e}
             icon={
               <svg
@@ -112,12 +121,19 @@ export function OverviewTab() {
 
             "Accommodation: 0/10",
           ].map((e) => (
-            <p className="font-semibold py-2 px-1  text-slate-500">{e}</p>
+            <p key={e} className="font-semibold py-2 px-1  text-slate-500">
+              {e}
+            </p>
           ))}
         </div>
       </div>
       {data.review.map((e) => (
-        <RatingCard name={e.name} rating={e.ratings} review={e.review} />
+        <RatingCard
+          key={e.name}
+          name={e.name}
+          rating={e.ratings}
+          review={e.review}
+        />
       ))}
     </div>
   );
@@ -164,12 +180,19 @@ export function ReviewRatingTab() {
 
             "Accommodation: 0/10",
           ].map((e) => (
-            <p className="font-semibold py-2 px-1  text-slate-500">{e}</p>
+            <p key={e} className="font-semibold py-2 px-1  text-slate-500">
+              {e}
+            </p>
           ))}
         </div>
       </div>
       {data.review.map((e) => (
-        <RatingCard name={e.name} rating={e.ratings} review={e.review} />
+        <RatingCard
+          key={e.name}
+          name={e.name}
+          rating={e.ratings}
+          review={e.review}
+        />
       ))}
     </div>
   );
@@ -210,7 +233,7 @@ export function GalleryTab() {
           "https://images.collegedunia.com/public/college_data/images/campusimage/15936131409.jpg?h=135&w=205&mode=stretch",
           "https://images.collegedunia.com/public/college_data/images/campusimage/159361314011.jpg?h=135&w=205&mode=stretch",
         ].map((e) => (
-          <img src={e} />
+          <img src={e} key={e} />
         ))}
       </div>
       <h1 className="text-lg  text-slate-600 font-semibold py-3 ">
@@ -224,7 +247,7 @@ export function GalleryTab() {
           "https://images.collegedunia.com/public/college_data/images/campusimage/159361314012.jpg?h=135&w=205&mode=stretch",
           "https://images.collegedunia.com/public/college_data/images/campusimage/159361314010.jpg?h=135&w=205&mode=stretch",
         ].map((e) => (
-          <img src={e} />
+          <img key={e} src={e} />
         ))}
       </div>
     </div>
@@ -250,7 +273,7 @@ export function InformationTab() {
 
       <div className="grid grid-cols-2 gap-2">
         {data.faculty.map((e) => (
-          <FacultyCard props={e} />
+          <FacultyCard key={e.name} props={e} />
         ))}
       </div>
     </div>
@@ -329,7 +352,7 @@ function FeesStructure() {
               { class: "Class 9", fees: 5400, examfees: 240 },
               { class: "Class 10", fees: 5400, examfees: 240 },
             ].map((e) => (
-              <tr className="border-b-2 border-slate-100">
+              <tr key={e.class} className="border-b-2 border-slate-100">
                 <td className=" p-2 font-semibold px-10 ">{e.class}</td>
                 <td className="p-2">{e.fees}/-</td>
                 <td className="p-2">{e.examfees}/-</td>
@@ -407,7 +430,7 @@ function SeatAvalibility() {
               { class: "Class 9", seats: 60 },
               { class: "Class 10", seats: 60 },
             ].map((e) => (
-              <tr className="border-b-2 border-slate-100">
+              <tr key={e.class} className="border-b-2 border-slate-100">
                 <td className=" p-2 font-semibold px-20 ">{e.class}</td>
                 <td className="p-2 text-center font-semibold">
                   {e.seats} Seats
@@ -547,7 +570,7 @@ function EligibilityCriteria() {
                   "No new admission will be taken in Classes VIII, IX, X, XII.",
               },
             ].map((e) => (
-              <tr className="border-b-2 border-slate-100">
+              <tr key={e.class} className="border-b-2 border-slate-100">
                 <td className=" p-2 text-left font-semibold px-10 w-40 ">
                   {e.class}
                 </td>

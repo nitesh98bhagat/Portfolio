@@ -67,21 +67,23 @@ export default function Blog() {
         );
 
       default:
-        return <h1>hmm, not sure what you're looking for...</h1>;
+        return <h1>hmm, not sure what you`re looking for...</h1>;
     }
   }
 
-  function Tab({title, index, }) {
-    return  <h1
-    className={` text-base px-5 py-2 ${
-      TabIndex === index
-        ? "border-t border-l border-r font-semibold"
-        : "border-b text-slate-500 font-normal"
-    } cursor-pointer rounded-t-md `}
-    onClick={() => setTabIndex(index)}
-  >
-    {title??"Recommended articles"}
-  </h1>
+  function Tab({ title, index }) {
+    return (
+      <h1
+        className={` text-base px-5 py-2 ${
+          TabIndex === index
+            ? "border-t border-l border-r font-semibold"
+            : "border-b text-slate-500 font-normal"
+        } cursor-pointer rounded-t-md `}
+        onClick={() => setTabIndex(index)}
+      >
+        {title ?? "Recommended articles"}
+      </h1>
+    );
   }
 
   return (
@@ -136,7 +138,7 @@ export default function Blog() {
               </button>
 
               <div className="flex flex-row  m-4 text-lg font-semibold">
-                <p>Don't have an account, just</p>
+                <p>Don`t have an account, just</p>
                 <Link href={"/signup"}>
                   <p className=" font-semibold text-blue-600  cursor-pointer mx-1">
                     {"Sign up "}
@@ -192,8 +194,6 @@ export default function Blog() {
               placeholder="Search Read.me"
             />
           </div>
-         
-           
 
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +242,10 @@ export default function Blog() {
           "Art",
           "Youtube",
         ].map((e) => (
-          <p className="py-1 cursor-pointer rounded-full  text-slate-500 px-3 font-base mx-1 text-base">
+          <p
+            key={e}
+            className="py-1 cursor-pointer rounded-full  text-slate-500 px-3 font-base mx-1 text-base"
+          >
             {e}
           </p>
         ))}
@@ -255,12 +258,10 @@ export default function Blog() {
         <div className="w-full flex flex-col px-20 py-3">
           {/* Tab Bar*/}
           <div className="flex flex-row my-4 ">
-           
-           
             <Tab title={"Recommended articles"} index={0} />
-            
+
             <Tab title={"Followed authors"} index={1} />
-            
+
             <Tab title={"Saved articles"} index={2} />
             <div className="border-b flex-1"></div>
           </div>
@@ -328,7 +329,9 @@ export default function Blog() {
 
               "Knowable",
             ].map((e) => (
-              <p className="p-2 hover:text-slate-600 cursor-pointer">{e}</p>
+              <p key={e} className="p-2 hover:text-slate-600 cursor-pointer">
+                {e}
+              </p>
             ))}
           </div>
         </div>
@@ -336,10 +339,6 @@ export default function Blog() {
     </div>
   );
 }
-
-
-
-
 
 export function BlogTile() {
   return (
@@ -412,5 +411,3 @@ function BlogCard() {
     </div>
   );
 }
-
-

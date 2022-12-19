@@ -10,7 +10,7 @@ export default function RatingCard({ name="user1", rating=4, review="Lorem ipsum
         <div className="flex flex-col">
           <h1 className="text-lg font-semibold">{name}</h1>
           <h1 className="flex flex-row">
-            {[...Array(rating)].map((e, i) =>  <svg
+            {[...Array(rating)].map((e, i) =>  <svg key={i}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"

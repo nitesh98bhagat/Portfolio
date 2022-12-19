@@ -22,7 +22,7 @@ export default function StoreFront({ data }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
         {data.map((e) => (
-          <Link href={`/store/product/${e.id}`}>
+          <Link key={e.id} href={`/store/product/${e.id}`}>
             <div className="flex flex-col border hover:scale-105 bg-white hover:bg-slate-100 cursor-pointer  justify-center items-start  p-3  border-slate-100">
               <img
                 src={e.image}
@@ -36,6 +36,7 @@ export default function StoreFront({ data }) {
               <h1 className="text-sm font-semibold flex flex-row text-blue-500">
                 {[...Array(Math.floor(e.rating.rate))].map((e, i) => (
                   <svg
+                  key={i}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
@@ -139,7 +140,7 @@ export function AppHeader() {
                   })
                   .splice(0, 8)
                   .map((item) => (
-                    <Link href={`/store/product/${item.id}`}>
+                    <Link key={item.id} href={`/store/product/${item.id}`}>
                       <Combobox.Option
                         key={item.id}
                         value={item.title}

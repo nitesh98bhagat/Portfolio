@@ -25,7 +25,7 @@ export default function FeaturingSection() {
         />
 
         <h1 className="text-base flex flex-row justify-center items-center p-3 ">
-          <a href="https://goo.gl/maps/uGJtEB7cssxFHrg88" target="_blank">
+          <a href="https://goo.gl/maps/uGJtEB7cssxFHrg88" rel="noreferrer" target="_blank">
             View on map
           </a>
           <svg
@@ -97,7 +97,7 @@ export default function FeaturingSection() {
                 to: "",
               },
             ].map((e) => (
-              <tr className="border-b-2 border-slate-100">
+              <tr key={e.day} className="border-b-2 border-slate-100">
                 <td className=" p-2 text-left font-semibold  ">
                   {e.day}
                 </td>

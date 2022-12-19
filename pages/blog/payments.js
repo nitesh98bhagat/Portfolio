@@ -24,7 +24,7 @@ export default function PaymentPage() {
           "Lorem ipsum dolor",
           " sit amet consectetur adipisicing elit.",
         ].map((e) => (
-          <div className="flex ">
+          <div key={e} className="flex ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ export default function PaymentPage() {
           "Lorem ipsum dolor",
           " sit amet consectetur adipisicing elit.",
         ].map((e) => (
-          <div className="flex ">
+          <div key={e} className="flex ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -21,7 +21,7 @@ export default function Footer() {
             { title: "Register a school", url: "/register-school" },
             { title: "Contact Us", url: "/contact-us" },
           ].map((e) => (
-            <FooterLink title={e.title} url={e.url} />
+            <FooterLink key={e.title} title={e.title} url={e.url} />
           ))}
         </div>
       </div>

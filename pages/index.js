@@ -31,7 +31,7 @@ export default function HomePage() {
         <div className="flex-col w-96">
           <h1 className="text-3xl font-bold">Nitesh Bhagat</h1>
           <p className="text-base p-2">
-          Hello there, I'm Front-end Engineer who has a bit of experenice in the frontend field.
+          Hello there, I`m Front-end Engineer who has a bit of experenice in the frontend field.
           All project done by me are listed here.</p>
         </div>
       </div>

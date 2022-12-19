@@ -48,6 +48,7 @@ export default function ProductPage({ data }) {
           <h1 className="text-xl font-semibold flex flex-row text-blue-500">
             {[...Array(Math.floor(data.rating.rate))].map((e, i) => (
               <svg
+              key={i}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"

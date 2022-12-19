@@ -44,7 +44,7 @@ export default function SchoolPage() {
         return <AboutTab />;
 
       default:
-        return <h1>hmm, not sure what you're looking for...</h1>;
+        return <h1>hmm, not sure what you`re looking for...</h1>;
     }
   }
 
@@ -109,7 +109,7 @@ export default function SchoolPage() {
             onSlideChange={() => console.log("slide change")}
           >
             {dataNew.nearSchool.map((e) => (
-              <SwiperSlide className="my-16 mx-5">
+              <SwiperSlide key={e.id} className="my-16 mx-5">
                 <SchoolCardNew props={e} key={e.img} />
               </SwiperSlide>
             ))}

@@ -138,7 +138,7 @@ function MenuHeader() {
           "Terminal",
           "help",
         ].map((e) => (
-          <p className="text-xs">{e}</p>
+          <p key={e} className="text-xs">{e}</p>
         ))}
       </>
       <div className="flex-1 text-center text-xs">Index.js</div>
@@ -163,7 +163,7 @@ function MenuFooter() {
       <div className="flex-grow"></div>
       <div className="flex space-x-3">
         {["Ln 52", "Col 15", "Space: 4", "UTF-8", "CRLF"].map((e) => (
-          <p className="text-xs ">{e}</p>
+          <p key={e} className="text-xs ">{e}</p>
         ))}
       </div>
     </div>

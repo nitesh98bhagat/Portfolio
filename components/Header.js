@@ -52,7 +52,7 @@ export default function Header() {
             .filter((e) => e.name.toLowerCase().includes(searchInput))
             .map((e) => {
               return (
-                <div className="flex flex-row items-center">
+                <div key={e.id} className="flex flex-row items-center">
                   <img src={e.img} alt="image" className="w-20 h-20" />
                   <div className="flex flex-col p-3">
                     <h1 className="text-xl font-bold">{e.name}</h1>
