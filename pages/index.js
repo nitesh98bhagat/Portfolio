@@ -22,10 +22,9 @@ export default function HomePage() {
 
   const tabBarView = [
     <ProjectPage key={"project"} />,
-    <h1 key={"skill"}>Skill</h1>,
     <EducationPage key={"education"} />,
-    <h1 key={"technologies"}>Technologies</h1>,
-    <h1 key={"about"}>About</h1>,
+    <TechnologyPage key={"technologies"} />,
+    <AboutMe key={"aboutme"} />,
   ];
 
   return (
@@ -71,32 +70,22 @@ export default function HomePage() {
 
         {/* Tab bar */}
         <div className="flex flex-row justify-start  sticky top-0 items-end w-full overflow-hidden hover:overflow-x-auto sm:w-2/3  bg-stone-50  ">
-          {["Project", "Skills", "Education", "Technologies", "About"].map(
-            (e, i) => (
-              <p
-                key={e}
-                onClick={() => setCurrentIndex(i)}
-                className={`
+          {["Project", "Education", "Technologies", "About"].map((e, i) => (
+            <p
+              key={e}
+              onClick={() => setCurrentIndex(i)}
+              className={`
               text-base sm:text-lg font-normal border-b-2 p-3 cursor-pointer
               ${
                 currentIndex === i
                   ? "text-teal-700   border-teal-500 font-medium"
                   : "text-slate-700"
               }`}
-              >
-                {e}
-              </p>
-            )
-          )}
+            >
+              {e}
+            </p>
+          ))}
           <div className="flex-1 border-b-2"></div>
-        </div>
-
-        <div className=" flex flex-row space-x-3 bg-stone-50 p-2 text-slate-500 text-sm sm:hidden">
-          <AiFillInfoCircle size={30} />
-          <span>
-            Please view these projects on the large screen to get the whole
-            experience
-          </span>
         </div>
 
         {/* Tab Bar View */}
@@ -107,47 +96,53 @@ export default function HomePage() {
     </div>
   );
 }
-
+// doc: SECTION
 function ProjectPage() {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4  gap-2  text-teal-500  py-5">
-      <ProjectTile
-        title={"VSCODE Clone"}
-        link="/vscode"
-        icon={<SiVisualstudiocode className="text-6xl  text-sky-400" />}
-      />
-      <ProjectTile
-        title={"YouTube Clone"}
-        link="/vscode"
-        icon={<BsYoutube className="text-6xl text-red-600 " />}
-      />
-      <ProjectTile
-        title={"Medium Clone"}
-        link="/blog"
-        icon={<AiFillMediumSquare className="text-6xl text-black " />}
-      />
-      <ProjectTile
-        title={"E-commerce"}
-        link="/store"
-        icon={<MdStore className="text-6xl text-gray-400" />}
-      />
-      <ProjectTile
-        title={"Twitter clone"}
-        link="/store"
-        icon={<BsTwitter className="text-6xl text-sky-400 " />}
-      />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
-      <ProjectTile link={"/testing"} />
+    <div>
+      <div className=" flex flex-row space-x-3 bg-stone-50 p-2 text-slate-500 text-sm ">
+        <AiFillInfoCircle size={20} />
+        <span>{"These are the project that I've built"}</span>
+      </div>
+      <div className="grid grid-cols-3 sm:grid-cols-4  gap-2  text-teal-500  py-5">
+        <ProjectTile
+          title={"VSCODE Clone"}
+          link="/vscode"
+          icon={<SiVisualstudiocode className="text-6xl  text-sky-400" />}
+        />
+        <ProjectTile
+          title={"YouTube Clone"}
+          link="/vscode"
+          icon={<BsYoutube className="text-6xl text-red-600 " />}
+        />
+        <ProjectTile
+          title={"Medium Clone"}
+          link="/blog"
+          icon={<AiFillMediumSquare className="text-6xl text-black " />}
+        />
+        <ProjectTile
+          title={"E-commerce"}
+          link="/store"
+          icon={<MdStore className="text-6xl text-amber-400" />}
+        />
+        <ProjectTile
+          title={"Twitter clone"}
+          link="/store"
+          icon={<BsTwitter className="text-6xl text-sky-400 " />}
+        />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
+        <ProjectTile link={"/testing"} />
 
-      {/* BsTwitter */}
+        {/* BsTwitter */}
+      </div>
     </div>
   );
 }
@@ -188,6 +183,10 @@ function EducationPage() {
 
   return (
     <div className="flex flex-col">
+      <div className=" flex flex-row space-x-3 bg-stone-50 p-2 text-slate-500 text-sm ">
+        <AiFillInfoCircle size={20} />
+        <span>{"These are my educational background"}</span>
+      </div>
       {educationList
         .map((e) => (
           <EducationTile
@@ -199,6 +198,101 @@ function EducationPage() {
           />
         ))
         .reverse()}
+    </div>
+  );
+}
+
+function TechnologyPage() {
+  const technologiesList = [
+    {
+      title: "Flutter",
+      subtitle: "Spend 2+ years in Flutter",
+      image:
+        "https://static1.xdaimages.com/wordpress/wp-content/uploads/2018/02/Flutter-Framework-Feature-Image-Background-Colour.png",
+    },
+    {
+      title: "React js",
+      subtitle: "1.5 years in React",
+      image: "https://www.ritechpune.com/backend/courseicon/ReactJS.png",
+    },
+    {
+      title: "Next js",
+      subtitle: "3+ month in React",
+      image: "https://miro.medium.com/max/1000/1*htbUdWgFQ3a94PMEvBr_hQ.png",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col p-1 space-y-2">
+      <div className=" flex flex-row space-x-3 bg-stone-50 p-2 text-slate-500 text-sm ">
+        <AiFillInfoCircle size={20} />
+        <span>{"These are the technologies that I've worked on"}</span>
+      </div>
+      {/* tile */}
+
+      {technologiesList.map((e) => (
+        <TechTile
+          key={e.image}
+          title={e.title}
+          subtitle={e.subtitle}
+          image={e.image}
+        />
+      ))}
+    </div>
+  );
+}
+
+function AboutMe() {
+  return (
+    <div className="flex flex-col p-3 space-y-1">
+      <h1 className="text-xl font-medium">About me</h1>
+      <p className="text-base sm:text-lg font-light">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
+        laboriosam et officiis sunt ad vero assumenda ipsam, ea quia veritatis
+        est voluptatibus adipisci perferendis! Aliquam eos saepe exercitationem
+        eligendi! Recusandae totam necessitatibus maiores quisquam reiciendis,
+        repellendus, debitis soluta commodi natus veniam laudantium saepe
+        adipisci placeat, aliquid quam nemo expedita odit.
+      </p>
+
+      <h1 className="text-xl font-medium">My Social Links</h1>
+      <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-2 ">
+        <SiFacebook size={30} />
+        <span>facebook.com/nitesh_bhagat</span>
+      </div>
+      <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-2 ">
+        <AiFillInstagram size={30} />
+        <span>instagram.com/nitesh_bhagat</span>
+      </div>
+
+      <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-2 ">
+        <AiFillTwitterCircle size={30} />
+        <span>instagram.com/nitesh_bhagat</span>
+      </div>
+      <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-2 ">
+        <AiFillLinkedin size={30} />
+        <span>instagram.com/nitesh_bhagat</span>
+      </div>
+    </div>
+  );
+}
+
+// doc:COMPONENT
+function TechTile({ title, subtitle, image }) {
+  return (
+    <div className="overflow-hidden justify-between items-center flex flex-row bg-teal-200 h-28 shadow rounded-lg ">
+      <div className=" flex flex-col p-5">
+        <p className="text-xl sm:text-2xl font-bold">{title ?? "Title"}</p>
+        <p className="text-base sm:text-lg">{subtitle ?? "Subtitle"}</p>
+      </div>
+      <img
+        src={
+          image ??
+          "https://winaero.com/blog/wp-content/uploads/2019/11/Photos-new-icon.png"
+        }
+        alt="flutter"
+        className="w-48 h-40 -mr-10 object-cover rounded-full "
+      />
     </div>
   );
 }
@@ -230,7 +324,9 @@ function ProjectTile({ title, icon, link }) {
     <Link href={link}>
       <div className="flex flex-col   items-center cursor-pointer bg-stone-50 hover:bg-white  p-2 sm:p-5 shadow-sm hover:shadow-md rounded-md">
         {icon ?? <BsFillImageFill className="text-6xl text-gray-400" />}
-        <p className="p-2">{title ?? "Vs Code Clone"}</p>
+        <p className="text-sm sm:text-lg text-slate-600 text-center p-2">
+          {title ?? "Project"}
+        </p>
       </div>
     </Link>
   );
