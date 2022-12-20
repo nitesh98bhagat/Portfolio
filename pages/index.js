@@ -1,32 +1,18 @@
-import Header from "../components/Header";
-import LocationCard from "../components/LocationCard";
-import SchoolCard, { SchoolCardNew } from "../components/SchoolCard";
-
-// slider
-import { Navigation, Pagination, Autoplay, A11y } from "swiper";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import dataNew from "../data";
 import Link from "next/link";
 import { SiFacebook, SiVisualstudiocode } from "react-icons/si";
 import {
+  AiFillInfoCircle,
   AiFillInstagram,
   AiFillLinkedin,
   AiFillMediumSquare,
   AiFillTwitterCircle,
 } from "react-icons/ai";
-import {
-  BsFacebook,
-  BsFillImageFill,
-  BsTwitter,
-  BsYoutube,
-} from "react-icons/bs";
+import { BsFillImageFill, BsTwitter, BsYoutube } from "react-icons/bs";
 import { MdStore } from "react-icons/md";
 import Image from "next/image";
 import { useState } from "react";
@@ -36,20 +22,24 @@ export default function HomePage() {
 
   const tabBarView = [
     <ProjectPage key={"project"} />,
+    <h1 key={"skill"}>Skill</h1>,
     <EducationPage key={"education"} />,
     <h1 key={"technologies"}>Technologies</h1>,
+    <h1 key={"about"}>About</h1>,
   ];
 
   return (
     <div
+      className=" flex flex-col bg-repeat "
       style={{
         backgroundImage: `url(https://media.istockphoto.com/id/1224388366/vector/colorful-geometric-background.jpg?s=612x612&w=0&k=20&c=0MH3nZPyJnqL41pnXHnejHlUqFBPmVVKt8dCl9tbaOs=)`,
       }}
-      className="flex flex-col h-screen justify-start   items-center   border-x-2"
     >
-      <div className="flex flex-col">
-        <div className="flex items-center space-x-3 bg-stone-50 p-5">
-          <div className="w-44 h-44 relative rounded-full">
+      <div className="flex flex-col  items-center ">
+        {/* Profle Bar */}
+        <div className="flex flex-row w-full sm:w-2/3  space-x-2 p-3 justify-center bg-stone-50">
+          {/* image */}
+          <div className=" w-20 h-20 sm:w-44 sm:h-44 relative rounded-full">
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
               alt="nitesh bhagat"
@@ -58,17 +48,17 @@ export default function HomePage() {
               className="rounded-full"
             />
           </div>
-
-          <div className="flex-col w-96">
-            <h1 className="text-3xl font-bold">Nitesh Bhagat</h1>
-            <h1 className="text-base font-base text-slate-500">
-              React, Next, Flutter{" "}
+          {/* details */}
+          <div className="flex flex-col w-64 md:w-72 sm:w-96 ">
+            <h1 className="text-lg sm:text-2xl font-bold">Nitesh Bhagat</h1>
+            <h1 className="text-sm sm:text-base font-base text-slate-500">
+              React, Next, Flutter
             </h1>
-            <p className="text-base p-2">
+            <p className="text-sm sm:text-base p-1">
               Hello there, I`m Front-end Engineer who has a bit of experenice in
               the frontend field. All project done by me are listed here.
             </p>
-            <div className="flex text-3xl text-slate-600">
+            <div className="sm:flex hidden text-3xl text-slate-600">
               <SiFacebook />
               <AiFillInstagram />
               <AiFillTwitterCircle />
@@ -76,29 +66,41 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
         {/* Tab bar */}
-        <div className="flex flex-row justify-start items-end w-full  bg-stone-50  ">
-          {["Project", "Education", "Technologies"].map((e, i) => (
-            <p
-              key={e}
-              onClick={() => setCurrentIndex(i)}
-              className={`
-              text-lg font-normal border-b-2 p-3 cursor-pointer
+        <div className="flex flex-row justify-start  sticky top-0 items-end w-full overflow-x-auto sm:w-2/3  bg-stone-50  ">
+          {["Project", "Skills", "Education", "Technologies", "About"].map(
+            (e, i) => (
+              <p
+                key={e}
+                onClick={() => setCurrentIndex(i)}
+                className={`
+              text-base sm:text-lg font-normal border-b-2 p-3 cursor-pointer
               ${
                 currentIndex === i
                   ? "text-teal-700   border-teal-500 font-medium"
                   : "text-slate-700"
               }`}
-            >
-              {e}
-            </p>
-          ))}
+              >
+                {e}
+              </p>
+            )
+          )}
           <div className="flex-1 border-b-2"></div>
         </div>
 
-        {/* menu section */}
+        <div className=" flex flex-row space-x-3 bg-stone-50 p-2 text-slate-500 text-sm sm:hidden">
+          <AiFillInfoCircle size={30} />
+          <span>
+            Please view these projects on the large screen to get the whole
+            experience
+          </span>
+        </div>
 
-        {tabBarView[currentIndex]}
+        {/* Tab Bar View */}
+        <div className="flex flex-col w-full  sm:w-2/3 bg-stone-50 ">
+          {tabBarView[currentIndex]}
+        </div>
       </div>
     </div>
   );
@@ -106,28 +108,42 @@ export default function HomePage() {
 
 function ProjectPage() {
   return (
-    <div className="grid grid-cols-3  gap-4 text-teal-500 bg-stone-50 py-5">
+    <div className="grid grid-cols-3 sm:grid-cols-4  gap-4  text-teal-500  py-5">
       <ProjectTiile
         title={"VSCODE Clone"}
         link="/vscode"
-        icon={<SiVisualstudiocode />}
+        icon={<SiVisualstudiocode className="text-6xl  text-sky-400" />}
       />
       <ProjectTiile
         title={"YouTube Clone"}
         link="/vscode"
-        icon={<BsYoutube />}
+        icon={<BsYoutube className="text-6xl text-red-600 " />}
       />
       <ProjectTiile
         title={"Medium Clone"}
         link="/blog"
-        icon={<AiFillMediumSquare />}
+        icon={<AiFillMediumSquare className="text-6xl text-black " />}
       />
-      <ProjectTiile title={"E-commerce"} link="/store" icon={<MdStore />} />
+      <ProjectTiile
+        title={"E-commerce"}
+        link="/store"
+        icon={<MdStore className="text-6xl text-gray-400" />}
+      />
       <ProjectTiile
         title={"Twitter clone"}
         link="/store"
-        icon={<BsTwitter />}
+        icon={<BsTwitter className="text-6xl text-sky-400 " />}
       />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
+      <ProjectTiile link={"/testing"} />
 
       {/* BsTwitter */}
     </div>
@@ -179,112 +195,10 @@ function EducationTle({ school, year, degree, subtitle }) {
 function ProjectTiile({ title, icon, link }) {
   return (
     <Link href={link}>
-      <div className="flex flex-col items-center cursor-pointer text-6xl hover:bg-white  p-5 shadow-md rounded-md">
-        {icon ?? <BsFillImageFill />}
-        <p className="text-base p-2">{title ?? "Vs Code Clone"}</p>
+      <div className="flex flex-col   items-center cursor-pointer  hover:bg-white  p-2 sm:p-5 shadow-md rounded-md">
+        {icon ?? <BsFillImageFill className="text-6xl text-gray-400" />}
+        <p className="p-2">{title ?? "Vs Code Clone"}</p>
       </div>
     </Link>
   );
 }
-
-/**
- * <div className="relative bg-black  rounded-xl">
-              <img
-                src={"https://schooldekho.co.in/img/burdwan.png"}
-                alt="img"
-                className=" rounded-xl opacity-30"
-              />
-              <div className="absolute top-20  w-full p-5   flex flex-col justify-center items-center rounded-xl">
-                <h1 className="text-white text-5xl">{"100+"}</h1>
-                <h1 className="text-white text-2xl">
-                  {"Explore More Location"}
-                </h1>
-              </div>
-            </div>
- * 
- */
-
-//   <div className=" ">
-//   {/* School near you */}
-//   <div className=" flex flex-col items-center py-5">
-//     <div className="text-center ">
-//       <h1 className="text-4xl text-slate-600 font-bold ">
-//         Schools Near You
-//       </h1>
-//       <h1 className="text-xl">
-//         Get admitted through School Dekho at no extra cost
-//       </h1>
-//     </div>
-
-//     <div className="w-full">
-//       <Swiper
-//         className=""
-//         // install Swiper modules
-//         modules={[Navigation, Pagination, Autoplay, A11y]}
-//         spaceBetween={5}
-//         slidesPerView={4}
-//         navigation
-//         autoplay
-//         pagination={{ clickable: true }}
-//         onSwiper={(swiper) => console.log(swiper)}
-//         onSlideChange={() => console.log("slide change")}
-//       >
-//         {dataNew.nearSchool.map((e) => (
-//           <SwiperSlide className="my-16 mx-5">
-//             {/* <SchoolCard props={e} key={e.img} /> */}
-//             <SchoolCardNew props={e} key={e.img} />
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//     </div>
-//   </div>
-
-//   {/* Admission */}
-//   <div className="p-3 flex flex-col items-center">
-//     <div className="text-center p-10">
-//       <h1 className="text-4xl text-slate-600 font-bold ">
-//         Admission Open
-//       </h1>
-//       <h1 className="text-xl">
-//         Get admitted through School Dekho at no extra cost
-//       </h1>
-//     </div>
-//     <div className="w-full">
-//       <Swiper
-//         className=""
-//         // install Swiper modules
-//         modules={[Navigation, Pagination, Autoplay, A11y]}
-//         spaceBetween={5}
-//         slidesPerView={4}
-//         navigation
-//         autoplay
-//         pagination={{ clickable: true }}
-//         onSwiper={(swiper) => console.log(swiper)}
-//         onSlideChange={() => console.log("slide change")}
-//       >
-//         {dataNew.nearSchool.map((e) => (
-//           <SwiperSlide className="my-20 mx-5">
-//             <SchoolCardNew props={e} key={e.img} />
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//     </div>
-//     <Link href={"/explore-school"}>
-//       <button className="px-5 py-3 m-10 text-xl hover:bg-blue-900 hover:text-white rounded-full font-bold border-2 border-blue-900 text-blue-900">
-//         View more
-//       </button>
-//     </Link>
-//   </div>
-//   {/* location */}
-//   <div className="w-3/4 mx-auto mb-10">
-//     <div className="text-center p-10 text-slate-900">
-//       <h1 className="text-6xl  font-bold ">Location</h1>
-//       <h1 className="text-xl">Find schools at your own district</h1>
-//     </div>
-//     <div className="grid grid-cols-3 gap-4 ">
-//       {dataNew.location.map((e) => (
-//         <LocationCard e={e} />
-//       ))}
-//     </div>
-//   </div>
-// </div>
