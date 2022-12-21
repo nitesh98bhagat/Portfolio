@@ -10,10 +10,12 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
   AiFillMediumSquare,
+  AiOutlineMail,
   AiFillTwitterCircle,
 } from "react-icons/ai";
 import { BsFillImageFill, BsTwitter, BsYoutube } from "react-icons/bs";
-import { MdStore } from "react-icons/md";
+import { MdStore, MdLocationOn } from "react-icons/md";
+
 import Image from "next/image";
 import { useState } from "react";
 
@@ -38,9 +40,9 @@ export default function HomePage() {
         style={{ minHeight: "100vh" }}
       >
         {/* Profle Bar */}
-        <div className="flex flex-row w-full sm:w-2/3  space-x-2 md:space-x-10 p-3 justify-start bg-stone-50">
+        <div className="flex flex-row w-full sm:w-2/3  space-x-2 md:space-x-5 p-3 justify-start bg-stone-50">
           {/* image */}
-          <div className=" w-20 h-20 sm:w-44 sm:h-44 relative rounded-full">
+          <div className=" w-20 h-20 sm:w-28 sm:h-28 relative rounded-full">
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
               alt="nitesh bhagat"
@@ -55,22 +57,35 @@ export default function HomePage() {
             <h1 className="text-sm sm:text-base font-base text-slate-500">
               React, Next, Flutter
             </h1>
-            <p className="text-sm sm:text-base p-1">
-              Hello there, I`m Front-end Engineer who has a bit of experenice in
-              the frontend field. All project done by me are listed here.
-            </p>
-            <div className="sm:flex hidden text-3xl text-slate-600">
-              <SiFacebook />
-              <AiFillInstagram />
-              <AiFillTwitterCircle />
-              <AiFillLinkedin />
+            {/* location */}
+            <div className="flex flex-row items-center text-slate-500 space-x-1">
+              <MdLocationOn />
+              <span className="text-sm">Kolkata, India</span>
             </div>
+            {/* email */}
+            <div className="flex flex-row items-center text-slate-500 space-x-1">
+              <AiOutlineMail />
+              <span className="text-sm">nikubh1998@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col bg-stone-50   ">
+          <p className="text-sm sm:text-base p-1 sm:w-1/2">
+            Hello there, I`m Front-end Engineer who has a bit of experenice in
+            the frontend field. All project done by me are listed here.
+          </p>
+          <div className="sm:flex hidden text-2xl text-slate-600">
+            <SiFacebook />
+            <AiFillInstagram />
+            <AiFillTwitterCircle />
+            <AiFillLinkedin />
           </div>
         </div>
 
         {/* Tab bar */}
         <div className="flex flex-row justify-start  sticky top-0 items-end w-full overflow-hidden hover:overflow-x-auto sm:w-2/3  bg-stone-50  ">
-          {["Project", "Education", "Technologies", "About"].map((e, i) => (
+          {["Projects", "Education", "Technologies", "About"].map((e, i) => (
             <p
               key={e}
               onClick={() => setCurrentIndex(i)}
@@ -212,13 +227,36 @@ function TechnologyPage() {
     },
     {
       title: "React js",
-      subtitle: "1.5 years in React",
+      subtitle: "Frontend Framework",
       image: "https://www.ritechpune.com/backend/courseicon/ReactJS.png",
     },
     {
       title: "Next js",
-      subtitle: "3+ month in React",
+      subtitle: "Full-Stack Framework",
       image: "https://miro.medium.com/max/1000/1*htbUdWgFQ3a94PMEvBr_hQ.png",
+    },
+    {
+      title: "Express js",
+      subtitle: "Backend Framework",
+      image:
+        "https://www.edureka.co/blog/wp-content/uploads/2019/07/express-logo.png",
+    },
+    {
+      title: "Tailwind Css",
+      subtitle: "CSS Framework",
+      image:
+        "https://yt3.ggpht.com/ikv41jMTr1uHGdILrJhvbfVJcDt4oqhwApKX37TjAleF_cRPbF2W-waj7uMnS5JySvnlvAlTCg=s900-c-k-c0x00ffffff-no-rj",
+    },
+    {
+      title: "MongoDB",
+      subtitle: "NoSQL Database",
+      image:
+        "https://www.commvault.com/wp-content/uploads/2019/08/mongodb-logo2.jpg?quality=80&w=930",
+    },
+    {
+      title: "Firebase",
+      subtitle: "Backend platform",
+      image: "https://firebase.google.com/images/social.png",
     },
   ];
 
@@ -255,7 +293,53 @@ function AboutMe() {
         adipisci placeat, aliquid quam nemo expedita odit.
       </p>
 
-      <h1 className="text-xl font-medium">My Social Links</h1>
+      <div className=" flex flex-col">
+        <h1 className="text-xl font-medium sm:py-1">Soft Skill</h1>
+        <p className="text-base sm:text-lg font-light px-5 py-2">
+          <ul className="list-disc">
+            <li>Team work</li>
+            <li>Quick Learner</li>
+            <li>Active Listener</li>
+          </ul>
+        </p>
+      </div>
+
+      <div className=" flex flex-col">
+        <h1 className="text-xl font-medium sm:py-1">Hobby & Interest</h1>
+        <p className="text-base sm:text-lg font-light px-5 py-2">
+          <ul className="list-disc">
+            <li>UI/UX Design</li>
+            <li>Logo Design</li>
+            <li>Content Writing</li>
+            <li>Making Youtube Videos</li>
+          </ul>
+        </p>
+      </div>
+
+      <div className="flex-row flex space-x-5 sm:space-x-10 ">
+        {/* Language */}
+        <div className="flex-col">
+          <h1 className="text-xl font-medium sm:py-1">Languages</h1>
+          <p className="text-base sm:text-lg font-light px-5 py-2">
+            <ul className="list-disc">
+              <li>Hindi</li>
+              <li>English</li>
+              <li>Bengali</li>
+            </ul>
+          </p>
+        </div>
+        {/* Awards */}
+        <div className="flex-col">
+          <h1 className="text-xl font-medium sm:py-1">Awards</h1>
+          <p className="text-base sm:text-lg font-light px-5 py-2">
+            <ul className="list-disc">
+              <li>Award Anshuman</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <h1 className="text-xl font-medium sm:py-1">My Social Links</h1>
       <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-2 ">
         <SiFacebook size={30} />
         <span>facebook.com/nitesh_bhagat</span>
