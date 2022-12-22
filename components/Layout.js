@@ -5,26 +5,19 @@ import Header from "./Header";
 
 export default function Layout({ children }) {
   const router = useRouter();
-  const showHeader =
-    router.pathname === "/auth/login"
-      ? false
-      : true && router.pathname.includes("/blog")
-      ? false
-      : true && router.pathname.includes("/store")
-      ? false
-      : true && router.pathname.includes("/testing")
-      ? false
-      : true && router.pathname.includes("/counter")
-      ? false
-      : true;
+  const showHeader = router.pathname === "/auth/login" ? false : true;
 
   return (
-    <div className="h-screen flex flex-col ">
-      {/* {showHeader && <Header />} */}
-      {/* <h1>{showHeader}</h1> */}
-      {/* <div className={`${showHeader ? "mb-16" : "mb-0"}`}></div> */}
+    <div
+      className="flex flex-col items-center "
+      style={{
+        backgroundImage: `url(https://media.istockphoto.com/id/1224388366/vector/colorful-geometric-background.jpg?s=612x612&w=0&k=20&c=0MH3nZPyJnqL41pnXHnejHlUqFBPmVVKt8dCl9tbaOs=)`,
+        minHeight: "100vh",
+      }}
+    >
+      {showHeader && <Header />}
       {children}
-      {/* {showHeader && <Footer />} */}
+      {showHeader && <Footer />}
     </div>
   );
 }
