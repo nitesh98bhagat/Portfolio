@@ -15,8 +15,17 @@ import {
   AiFillGithub,
   AiFillYoutube,
 } from "react-icons/ai";
-import { BsFillImageFill, BsTwitter, BsYoutube } from "react-icons/bs";
-import { MdStore, MdLocationOn } from "react-icons/md";
+import {
+  BsFillImageFill,
+  BsHammer,
+  BsFillChatSquareTextFill,
+  BsTwitter,
+  BsYoutube,
+} from "react-icons/bs";
+import { MdStore, MdLocationOn, MdVerified } from "react-icons/md";
+import { FaProjectDiagram } from "react-icons/fa";
+import { GiWhiteBook } from "react-icons/gi";
+import { GoHome } from "react-icons/go";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -25,6 +34,7 @@ export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabBarView = [
+    <h1 key={"home"}>Home</h1>,
     <ProjectPage key={"project"} />,
     <EducationPage key={"education"} />,
     <TechnologyPage key={"technologies"} />,
@@ -44,20 +54,25 @@ export default function HomePage() {
         {/* Profle Bar */}
         <div className="flex flex-row w-full sm:w-2/3  space-x-2 md:space-x-5 p-3 justify-start items-end bg-white sm:bg-stone-50">
           {/* image */}
-          <div className=" w-24 h-24 relative rounded-full">
+
+          <div className=" w-24 h-24 relative rounded-full border-4 border-teal-500">
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
               alt="nitesh bhagat"
               layout="fill" // required
               objectFit="cover"
-              className="rounded-full"
+              className="rounded-full "
             />
           </div>
+
           {/* details */}
           <div className="flex flex-col  ">
-            <h1 className="text-lg sm:text-2xl font-bold">Nitesh Bhagat</h1>
+            <h1 className="text-lg sm:text-2xl font-bold flex flex-row items-center space-x-1">
+              <span>Nitesh Bhagat</span>
+              <MdVerified className="text-teal-500" />
+            </h1>
             <h1 className="text-sm sm:text-base font-base text-slate-500">
-              React, Next, Flutter
+              Software Developer
             </h1>
             {/* location */}
             <div className="flex flex-row items-center text-slate-500 space-x-1">
@@ -108,7 +123,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex flex-col bg-white sm:bg-stone-50  sm:w-2/3 ">
-          <p className="text-sm sm:text-base p-1 sm:w-1/2">
+          <p className="text-sm sm:text-base px-4 sm:w-1/2">
             Hello there, I`m a professional Day-Dreamer, who happens to be a
             Software Engineer.
           </p>
@@ -116,19 +131,26 @@ export default function HomePage() {
 
         {/* Tab bar */}
         <div className="flex flex-row justify-start  sticky top-0 items-end w-full overflow-hidden hover:overflow-x-auto sm:w-2/3  bg-white sm:bg-stone-50  ">
-          {["Projects", "Education", "Technologies", "About"].map((e, i) => (
+          {[
+            { title: "Home", icon: <GoHome /> },
+            { title: "Projects", icon: <FaProjectDiagram /> },
+            { title: "Education", icon: <GiWhiteBook /> },
+            { title: "Technologies", icon: <BsHammer /> },
+            { title: "About", icon: <BsFillChatSquareTextFill /> },
+          ].map((e, i) => (
             <p
-              key={e}
+              key={e.title}
               onClick={() => setCurrentIndex(i)}
               className={`
-              text-base sm:text-lg font-normal border-b-2 py-2 px-3 cursor-pointer
+              text-base font-medium sm:text-lg flex items-center  border-b-2 py-3 px-4 space-x-1  cursor-pointer
               ${
                 currentIndex === i
                   ? "text-teal-700   border-teal-500 font-medium"
                   : "text-slate-700"
               }`}
             >
-              {e}
+              <span>{e.icon}</span>
+              <span>{e.title}</span>
             </p>
           ))}
           <div className="flex-1 border-b-2"></div>
@@ -306,7 +328,7 @@ function AboutMe() {
         <span>
           Apart from Web-Development I`ve also spent a reasonable amount of time
           in Cross-Platform Mobile App Development with Google`s Flutter. To
-          know more about
+          know more about flutter
           <a
             href="https://flutter.dev/"
             className=" text-sm  px-2 text-blue-500"
@@ -320,6 +342,31 @@ function AboutMe() {
           of various systems like Web-apps, Mobile apps & Desktop apps with
           Adobe XD & Figma.
         </span>
+        <span>
+          I`ve also made couple of youtube videos explaining technologies in
+          English as well as in Hindi.
+          <br />
+          <a
+            href="https://www.youtube.com/watch?v=BKNaqmpU2Rk"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="flex flex-row text-base text-slate-600 items-center space-x-2 py-1 hover:underline ">
+              <AiFillYoutube size={30} />
+              <span>Library vs Framework Explained</span>
+            </div>
+          </a>
+          <a
+            href="https://www.youtube.com/watch?v=fxbomirnsFw"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="flex flex-row text-sm text-slate-600 items-center space-x-2 py-1 hover:underline ">
+              <AiFillYoutube size={30} x />
+              <span>How Does Internet Works Explaind in Hindi </span>
+            </div>
+          </a>
+        </span>
       </p>
 
       <div className=" flex flex-col">
@@ -329,6 +376,7 @@ function AboutMe() {
             <li>Team work</li>
             <li>Quick Learner</li>
             <li>Active Listener</li>
+            <li>Problem Solver</li>
           </ul>
         </p>
       </div>
@@ -350,9 +398,24 @@ function AboutMe() {
         <h1 className="text-xl font-medium py-2">Languages</h1>
         <p className="text-base sm:text-lg font-light px-5 py-2">
           <ul className="list-disc space-y-2">
-            <li>Hindi</li>
-            <li>English</li>
-            <li>Bengali</li>
+            <li>
+              <div className="flex flex-col">
+                <span className="font-medium">Hindi</span>
+                <span>Fluent in Reading, Writiing & Speaking </span>
+              </div>
+            </li>
+            <li>
+              <div className="flex flex-col">
+                <span className="font-medium">English</span>
+                <span>Fluent in Reading, Writiing & Speaking </span>
+              </div>
+            </li>
+            <li>
+              <div className="flex flex-col">
+                <span className="font-medium">Bengali</span>
+                <span>Familiar in Speaking </span>
+              </div>
+            </li>
           </ul>
         </p>
       </div>
