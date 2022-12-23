@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex flex-wrap w-full sm:w-2/3  bg-white sm:bg-[#fbfbfb] space-x-5 p-5 items-center  justify-center">
+    <div className="flex flex-wrap w-full sm:w-3/4  bg-white sm:bg-[#fbfbfb] space-x-5 p-5 items-center  justify-center">
       {[
         { title: "About" },
         { title: "Blog" },

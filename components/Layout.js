@@ -17,7 +17,6 @@ export default function Layout({ children }) {
     >
       {showHeader && <Header />}
       {children}
-      {showHeader && <Footer />}
     </div>
   );
 }

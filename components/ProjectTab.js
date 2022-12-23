@@ -74,10 +74,15 @@ export default function ProjectTab() {
 function ProjectTile2({ e }) {
   return (
     <div className="flex flex-col hover:bg-slate-50 cursor-pointer ">
-      <img
+      {/* <img
         src="https://png.pngtree.com/png-vector/20190120/ourlarge/pngtree-gallery-vector-icon-png-image_470660.jpg"
         alt="postImage"
         className=" rounded-t-lg h-32 object-cover"
+      /> */}
+      <img
+        src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+        alt="postImage"
+        className="py-2 rounded-3xl aspect-square w-full h-72  object-cover"
       />
       <div className="rounded-b-lg border p-3 border-slate-100 ">
         <h1 className="text-base font-medium">{e.title ?? "Title"}</h1>

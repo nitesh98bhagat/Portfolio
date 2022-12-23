@@ -1,4 +1,4 @@
-export default function counter() {
+export default function Counter() {
   //
   return (
     <div className="h-screen">

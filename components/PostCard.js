@@ -21,7 +21,7 @@ export default function PostCard({
         />
       </div>
       {/* content area */}
-      <div className="flex flex-col px-2  flex-1">
+      <div className="flex flex-col px-2  flex-1 justify-start items-start">
         <p className="text-base font-bold">Nitesh Bhagat</p>
         <p className="text-xs font-normal">2 day ago</p>
         {/* caption */}
@@ -35,9 +35,9 @@ export default function PostCard({
         )}
         {postImage ? (
           <img
-            src="https://png.pngtree.com/png-vector/20190120/ourlarge/pngtree-gallery-vector-icon-png-image_470660.jpg"
+            src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
             alt="postImage"
-            className="py-2 rounded-2xl aspect-square h-52 object-cover"
+            className="py-2 rounded-3xl aspect-square w-full h-72  object-cover"
           />
         ) : (
           <></>

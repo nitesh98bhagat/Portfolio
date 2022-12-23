@@ -1,64 +1,7 @@
-import { useState } from "react";
-
 import { Combobox } from "@headlessui/react";
-import Image from "next/image";
-import { IoIosArrowBack, IoIosArrowForward, IoMdClose } from "react-icons/io";
-import {
-  AiFillInstagram,
-  AiFillLinkedin,
-  AiFillTwitterCircle,
-} from "react-icons/ai";
-
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import SearchBar from "../components/SearchBar";
-
-export default function Testing() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const SwiperButtonNext = () => {
-    const swiper = useSwiper();
-
-    return (
-      <button
-        className=" p-5 text-white bg-slate-900"
-        onClick={() => swiper.slideNext()}
-      >
-        <IoIosArrowForward className="cursor-pointer " />
-      </button>
-    );
-  };
-
-  const SwiperButtonPrep = () => {
-    const swiper = useSwiper();
-
-    return (
-      <button
-        className=" p-5 text-white bg-slate-900"
-        onClick={() => swiper.slidePrev()}
-      >
-        <IoIosArrowBack className="cursor-pointer" />
-      </button>
-    );
-  };
-
-  return (
-    <div className=" w-3/4  ">
-      <MyCombobox />
-      <h1>search bar</h1>
-      <SearchBar />
-    </div>
-  );
-}
-
-// ddddddd
 
 const people = [
   { id: 1, name: "Durward Reynolds" },
@@ -66,19 +9,27 @@ const people = [
   { id: 3, name: "Therese Wunsch" },
   { id: 4, name: "Benedict Kessler" },
   { id: 5, name: "Katelyn Rohan" },
+  { id: 6, name: "Christen Wales" },
+  { id: 7, name: "Ana Medis" },
+  { id: 8, name: "Tylor Grey" },
+  { id: 9, name: "Jack Hughings" },
+  { id: 10, name: "Laila Burtcher" },
+  { id: 11, name: "Nitesh Bhagat" },
+  { id: 12, name: "Rayman Siemens" },
 ];
 
-function MyCombobox() {
+export default function SearchBar() {
   const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [query, setQuery] = useState("");
+  const router = useRouter();
 
   const handleOnChangeCombobox = (e) => {
     setSelectedPerson(e);
-    // router.push(`/${e}`);
+    router.push(`/user?${e}`);
   };
 
   return (
-    <div className=" hidden rounded-full px-2  md:flex bg-slate-100 hover:bg-slate-200  items-center ">
+    <div className=" flex  rounded-full px-2   relative  bg-slate-100 hover:bg-slate-200  items-center justify-center ">
       <CiSearch size={25} />
       <Combobox
         value={selectedPerson}
@@ -91,7 +42,7 @@ function MyCombobox() {
           type="text"
           autoComplete="off"
         />
-        <Combobox.Options className="absolute top-[7rem] w-3/4 ">
+        <Combobox.Options className="absolute top-11 w-full  ">
           {query === ""
             ? people.id
             : people
@@ -106,8 +57,8 @@ function MyCombobox() {
                     key={item.id}
                     value={item.name}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 bg-white shadow-lg ${
-                        active ? "bg-slate-200 text-slate-900" : "text-gray-900"
+                      `relative cursor-default select-none py-2 pl-10 pr-4 bg-[#fbfbfb] shadow-xl ${
+                        active ? "bg-teal-100 text-slate-900" : "text-gray-900"
                       }`
                     }
                   >

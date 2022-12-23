@@ -1,8 +1,3 @@
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import { SiFacebook } from "react-icons/si";
 import {
   AiFillInstagram,
@@ -24,7 +19,7 @@ import EducationTab from "../components/EducationTab";
 import TechnologyTab from "../components/TechnologyTab";
 import AboutTab from "../components/About";
 
-export default function HomePage() {
+export default function ProfilePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabBarView = [
@@ -36,7 +31,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="w-full sm:w-2/3 bg-white sm:bg-[#fbfbfb]">
+    <div className="w-full sm:w-3/4 bg-white sm:bg-[#fbfbfb]">
       {/* Profle Bar */}
       <div className="flex flex-row w-full  space-x-2 md:space-x-5 p-2 justify-start items-end ">
         {/* image */}
@@ -128,18 +123,18 @@ export default function HomePage() {
             key={e.title}
             onClick={() => setCurrentIndex(i)}
             className={`
-              text-base font-medium  flex items-center  border-b-2 py-3 px-4 space-x-1  cursor-pointer
+              text-base font-medium  flex items-center  border-b-2  py-3 px-4 space-x-1  cursor-pointer
               ${
                 currentIndex === i
                   ? "text-teal-700   border-teal-500 font-medium"
-                  : "text-slate-700"
+                  : "text-slate-700 border-slate-100"
               }`}
           >
             <span>{e.icon}</span>
             <span>{e.title}</span>
           </p>
         ))}
-        <div className="flex-1 border-b-2"></div>
+        <div className="flex-1 border-b-2 border-slate-100"></div>
       </div>
 
       {/* Tab Bar View */}
