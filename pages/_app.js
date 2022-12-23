@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
 
         <LoadingBar
-          color="#ec4899"
+          color="#0d9488"
           waitingTime={400}
           loaderSpeed={600}
           progress={progress}

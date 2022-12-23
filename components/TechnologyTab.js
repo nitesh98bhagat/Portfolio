@@ -45,7 +45,7 @@ export default function TechnologyTab() {
 
   return (
     <div className="flex flex-col p-1 space-y-2 ">
-      <div className=" flex flex-row space-x-3 bg-white sm:bg-[#fbfbfb] p-2 text-slate-500 text-sm ">
+      <div className=" flex flex-row space-x-3 bg-white p-2 text-slate-500 text-sm ">
         <AiFillInfoCircle size={20} />
         <span>{"These are the technologies that I've worked on"}</span>
       </div>

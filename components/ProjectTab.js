@@ -62,7 +62,7 @@ export default function ProjectTab() {
         <AiFillInfoCircle size={20} />
         <span>{"These are the project that I've built"}</span>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4  gap-2    pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-2    pt-2">
         {projectList.map((e) => (
           <ProjectTile2 key={e.title} e={e} />
         ))}
