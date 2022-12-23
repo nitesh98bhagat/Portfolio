@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GroupTile from "./GroupTile";
 import PostCard from "./PostCard";
 
 export default function HomeTab() {
@@ -21,8 +22,13 @@ export default function HomeTab() {
       </div>
       {/* groups */}
       <div className="relative flex-1">
-        <div className="flex-col hidden sm:flex h-52 border sticky top-28 border-slate-100 bg-stone-50 rounded-lg p-2 ">
-          d
+        <div className="flex-col hidden sm:flex space-y-1  border sticky top-28 border-slate-100  rounded-lg p-3 ">
+          <span className="text-base font-semibold pb-2">
+            Recommended groups
+          </span>
+          <GroupTile />
+          <GroupTile />
+          <GroupTile />
         </div>
       </div>
     </div>
