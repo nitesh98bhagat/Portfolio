@@ -62,29 +62,24 @@ export default function ProjectTab() {
         <AiFillInfoCircle size={20} />
         <span>{"These are the project that I've built"}</span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-2    pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-2    p-2">
         {projectList.map((e) => (
-          <ProjectTile2 key={e.title} e={e} />
+          <ProjectTile key={e.title} e={e} />
         ))}
       </div>
     </div>
   );
 }
 
-function ProjectTile2({ e }) {
+function ProjectTile({ e }) {
   return (
-    <div className="flex flex-col hover:bg-slate-50 cursor-pointer ">
-      {/* <img
-        src="https://png.pngtree.com/png-vector/20190120/ourlarge/pngtree-gallery-vector-icon-png-image_470660.jpg"
-        alt="postImage"
-        className=" rounded-t-lg h-32 object-cover"
-      /> */}
+    <div className="flex flex-col hover:bg-slate-50 cursor-pointer border  border-slate-200 rounded-xl overflow-hidden">
       <img
         src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
         alt="postImage"
-        className="py-2 rounded-3xl aspect-square w-full h-72  object-cover"
+        className=" aspect-square w-full h-32  object-cover"
       />
-      <div className="rounded-b-lg border p-3 border-slate-100 ">
+      <div className=" p-3  ">
         <h1 className="text-base font-medium">{e.title ?? "Title"}</h1>
         <p className="text-sm text-slate-500 ">{e.subtitle ?? "Subtitle"}</p>
       </div>
