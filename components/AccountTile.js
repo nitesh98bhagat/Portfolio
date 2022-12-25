@@ -8,7 +8,7 @@ export default function AccountTile() {
       <img
         src={"https://miro.medium.com/max/1100/0*PYIfVeHV1Qd32X31"}
         alt="flutter"
-        className="h-40 aspect-square -ml-5 object-cover rounded-full "
+        className="w-1/3 sm:w-1/6 aspect-square -ml-5 object-cover rounded-full "
       />
       {/* details */}
       <div className="flex flex-col p-2 justify-start items-start">

@@ -5,10 +5,10 @@ export default function UserPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className="flex flex-col sm:flex-row w-full sm:w-3/4  border-t">
+    <div className="flex flex-col sm:flex-row w-full sm:w-3/4 bg-[#fbfbfb]  ">
       {/* Category */}
       <div className="relative  sm:border-r sm:w-1/6 ">
-        <div className="flex flex-row overflow-hidden hover:overflow-x-auto sm:flex-col sticky top-14 bg-[#fbfbfb]">
+        <div className="flex flex-row overflow-hidden hover:overflow-x-auto sm:flex-col sticky top-14 bg-white sm:bg-[#fbfbfb]">
           <span className="p-2 font-medium hidden sm:block text-slate-500">
             Look for
           </span>
@@ -28,7 +28,7 @@ export default function UserPage() {
         </div>
       </div>
       {/* main content */}
-      <div className="flex flex-1 flex-col bg-[#fbfbfb] p-2 space-y-2">
+      <div className="flex flex-1 flex-col bg-white sm:bg-[#fbfbfb] p-2 space-y-2">
         <AccountTile />
         <AccountTile />
         <AccountTile />
