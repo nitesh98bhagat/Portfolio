@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Footer from "./Footer";
 import GroupTile from "./GroupTile";
 import PostCard from "./PostCard";
 
@@ -28,7 +29,7 @@ export default function HomeTab() {
           <GroupTile />
           <GroupTile />
           <GroupTile />
-          <div className="flex flex-wrap w-full   bg-white sm:bg-[#fbfbfb] space-x-5 p-3 items-center  justify-center">
+          {/* <div className="flex flex-wrap w-full   bg-white sm:bg-[#fbfbfb] space-x-5 p-3 items-center  justify-center">
             {[
               { title: "About" },
               { title: "Blog" },
@@ -40,7 +41,8 @@ export default function HomeTab() {
                 {e.title}
               </p>
             ))}
-          </div>
+          </div> */}
+          <Footer />
         </div>
       </div>
     </div>

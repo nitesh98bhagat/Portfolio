@@ -16,6 +16,7 @@ const people = [
   { id: 10, name: "Laila Burtcher" },
   { id: 11, name: "Nitesh Bhagat" },
   { id: 12, name: "Rayman Siemens" },
+  { id: 13, name: "Ashok Nileshan " },
 ];
 
 export default function SearchBar() {

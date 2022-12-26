@@ -18,9 +18,12 @@ import ProjectTab from "../components/ProjectTab";
 import EducationTab from "../components/EducationTab";
 import TechnologyTab from "../components/TechnologyTab";
 import AboutTab from "../components/About";
+import { useSession } from "next-auth/react";
 
 export default function ProfilePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { data: session, status } = useSession();
 
   const tabBarView = [
     <HomeTab key={"home"} />,
@@ -30,6 +33,10 @@ export default function ProfilePage() {
     <AboutTab key={"AboutTab"} />,
   ];
 
+  if (!session) {
+    return <h1 className="text-2xl"> loading...</h1>;
+  }
+
   return (
     <div className="w-full sm:w-3/4 bg-white sm:bg-[#fbfbfb]">
       {/* Profle Bar */}
@@ -38,7 +45,10 @@ export default function ProfilePage() {
 
         <div className=" w-24 h-24 relative rounded-full border-4 border-teal-500">
           <Image
-            src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
+            src={
+              session.user.image ??
+              "https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
+            }
             alt="nitesh bhagat"
             layout="fill" // required
             objectFit="cover"
@@ -49,7 +59,7 @@ export default function ProfilePage() {
         {/* details */}
         <div className="flex flex-col  ">
           <h1 className="text-lg sm:text-2xl font-bold flex flex-row items-center space-x-1">
-            <span>Nitesh Bhagat</span>
+            <span>{session.user.name ?? "Display Name"}</span>
             <MdVerified className="text-teal-500" />
           </h1>
           <h1 className="text-sm sm:text-base font-base text-slate-500">
@@ -63,7 +73,9 @@ export default function ProfilePage() {
           {/* email */}
           <div className="flex flex-row items-center text-slate-500 space-x-1">
             <AiOutlineMail />
-            <span className="text-sm">nikubh1998@gmail.com</span>
+            <span className="text-sm">
+              {session.user.email ?? "someone@xyz.com"}
+            </span>
           </div>
         </div>
 
@@ -111,7 +123,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Tab bar */}
-      <div className="flex flex-row justify-start z-20 sticky top-[53px]  items-end w-full overflow-hidden hover:overflow-x-auto   bg-white sm:bg-[#fbfbfb]  ">
+      <div className="flex flex-row justify-start z-20 sticky top-[65px]  items-end w-full overflow-hidden hover:overflow-x-auto   bg-white sm:bg-[#fbfbfb]  ">
         {[
           { title: "Home", icon: <GoHome /> },
           { title: "Projects", icon: <FaProjectDiagram /> },

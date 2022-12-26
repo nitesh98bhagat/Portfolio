@@ -11,15 +11,30 @@ function HomePage() {
       {/* feed */}
       <div className="flex-col flex w-full sm:w-3/5 ">
         <PostCard postImage />
+
+        <PostCard
+          postContent={
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
+          }
+        />
         <PostCard postContent />
+        <PostCard postImage />
+        <PostCard postImage />
+        <PostCard
+          postImage
+          postContent={
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
+          }
+        />
         <PostCard postContent />
         <PostCard postImage />
         <PostCard postImage />
-        <PostCard postContent postImage />
-        <PostCard postContent />
-        <PostCard postImage />
-        <PostCard postImage />
-        <PostCard postContent postImage />
+        <PostCard
+          postImage
+          postContent={
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
+          }
+        />
         <PostCard postContent />
         <PostCard postImage />
       </div>

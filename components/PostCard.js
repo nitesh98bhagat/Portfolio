@@ -11,7 +11,7 @@ export default function PostCard({
   return (
     <div className="flex flex-row p-1 border-b py-2">
       {/* profile page */}
-      <div className=" w-12 h-12 relative rounded-full border-2  border-teal-500">
+      <div className=" w-12 h-12 relative z-10 rounded-full border-2  border-teal-500">
         <Image
           src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
           alt="nitesh bhagat"
