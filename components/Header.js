@@ -31,7 +31,7 @@ function Header() {
 
   return (
     <div
-      className={`flex flex-row w-full sm:w-3/4 sm:px-8  sticky top-0 z-30  sm:border-b space-x-2 md:space-x-5 ${
+      className={`flex flex-row w-full sm:w-3/4 sm:px-8  sticky top-0 z-30  sm:border-b space-x-2 md:space-x-5 transition ease-in-out delay-150  ${
         isSearchBarOpen ? "p-2" : "p-3"
       } justify-between items-center bg-white sm:bg-[#fbfbfb]`}
     >
@@ -66,20 +66,21 @@ function Header() {
               <GoHome className="cursor-pointer" />
             </Link>
 
-            <BsFillPeopleFill />
+            <CiSearch
+              className="block sm:hidden "
+              onClick={() => dispatch(toggleSearchBar())}
+            />
             {session ? (
               <>
-                <BsFillBriefcaseFill />
-                <BsFillChatTextFill />
+                {/* <BsFillPeopleFill /> */}
+                {/* <BsFillBriefcaseFill /> */}
+                {/* <BsFillChatTextFill /> */}
               </>
             ) : (
-              <CiSearch
-                className="block sm:hidden "
-                onClick={() => dispatch(toggleSearchBar())}
-              />
+              <></>
             )}
             {session ? (
-              <div className=" w-40">
+              <div className=" sm:w-40">
                 <DropDownMenu
                   displayImage={session.user.image}
                   displayName={session.user.name}

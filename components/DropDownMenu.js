@@ -14,23 +14,25 @@ export default function DropDownMenu({ displayName, displayImage }) {
     <div className=" w-full  ">
       <Menu as="div" className="">
         <div>
-          <Menu.Button className="flex flex-row items-center space-x-3">
-            <div className="flex-col flex items-start">
+          <Menu.Button className="flex flex-row items-center  sm:space-x-3">
+            <div className="flex-col hidden sm:flex items-start px-1">
               <span className="text-xs">Signed in as</span>
               <span className="text-xs font-medium  line-clamp-1 text-left">
                 {displayName}
               </span>
             </div>
 
-            <div className=" w-12 h-9 relative overflow-hidden rounded-full border-2 p-1  border-teal-500">
-              <Image
-                src={displayImage}
-                alt="nitesh bhagat"
-                layout="fill" // required
-                objectFit="cover"
-                className="rounded-full "
-              />
-            </div>
+            {/* <div className=" w-10 h-10 relative  overflow-hidden  rounded-full border-2 p-1  border-teal-500"> */}
+            <Image
+              src={displayImage}
+              alt="nitesh bhagat"
+              width={35}
+              height={35}
+              // layout="fill" // resquired
+              // objectFit="fill"
+              className="rounded-full border-2"
+            />
+            {/* </div> */}
             <BiChevronDown
               className=" h-5 w-5 text-slate-800 hover:text-teal-100"
               aria-hidden="true"

@@ -10,37 +10,25 @@ function HomePage() {
     <div className="flex flex-row w-full sm:w-3/4 space-x-2   bg-white sm:bg-[#fbfbfb] p-2">
       {/* feed */}
       <div className="flex-col flex w-full sm:w-3/5 ">
-        <PostCard postImage />
-
-        <PostCard
-          postContent={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
-          }
-        />
-        <PostCard postContent />
-        <PostCard postImage />
-        <PostCard postImage />
-        <PostCard
-          postImage
-          postContent={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
-          }
-        />
-        <PostCard postContent />
-        <PostCard postImage />
-        <PostCard postImage />
-        <PostCard
-          postImage
-          postContent={
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, autem?"
-          }
-        />
-        <PostCard postContent />
-        <PostCard postImage />
+        {[
+          {
+            id: "eyeyeyeyeyye",
+            postImage:
+              "https://therenegadecoder.com/wp-content/uploads/2020/05/python-input-output.png",
+            postContent: "New Design",
+            userName: "Jared Dunn",
+          },
+          {
+            id: "hdhdkd",
+            postContent: "Js is the new trend",
+          },
+        ].map((e) => (
+          <PostCard key={e.postImage} props={e} />
+        ))}
       </div>
 
       {/* sidebar */}
-      <div className="relative w-1/3 ">
+      <div className="relative hidden sm:block sm:w-1/3 ">
         {/* buzzing */}
         <div className="flex-col hidden space-y-1 sm:flex  bg-[#fbfbfb]  sticky top-5 rounded-lg p-1 h-[750px]">
           <h1 className="text-xl py-1 font-medium flex flex-row items-center">

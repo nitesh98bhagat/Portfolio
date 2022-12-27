@@ -43,7 +43,7 @@ export default function ProfilePage() {
       <div className="flex flex-row w-full  space-x-2 md:space-x-5 p-2 justify-start items-end ">
         {/* image */}
 
-        <div className=" w-24 h-24 relative rounded-full border-4 border-teal-500">
+        <div className=" w-24 h-24 relative rounded-full  border-4 border-teal-500">
           <Image
             src={
               session.user.image ??
@@ -52,7 +52,7 @@ export default function ProfilePage() {
             alt="nitesh bhagat"
             layout="fill" // required
             objectFit="cover"
-            className="rounded-full "
+            className="rounded-full object-cover "
           />
         </div>
 
@@ -123,7 +123,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Tab bar */}
-      <div className="flex flex-row justify-start z-20 sticky top-[65px]  items-end w-full overflow-hidden hover:overflow-x-auto   bg-white sm:bg-[#fbfbfb]  ">
+      <div className="flex flex-row justify-start z-20 sticky top-[55px] sm:top-[60px]  items-end w-full overflow-hidden hover:overflow-x-auto   bg-white sm:bg-[#fbfbfb]  ">
         {[
           { title: "Home", icon: <GoHome /> },
           { title: "Projects", icon: <FaProjectDiagram /> },

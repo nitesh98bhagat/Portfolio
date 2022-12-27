@@ -1,10 +1,7 @@
 import Image from "next/image";
-import React from "react";
-import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
 import PostCard from "../components/PostCard";
-import { RiRadioButtonLine } from "react-icons/ri";
 
 export default function GroupPage() {
   return (
@@ -45,38 +42,22 @@ export default function GroupPage() {
         </div>
         {/* main area */}
         <div className="flex flex-col flex-grow px-5 border-x ">
-          <PostCard postContent />
-          <PostCard postImage />
-          <PostCard postContent />
-          <PostCard postImage />
-          <PostCard postContent />
-          <PostCard postImage />
-          <PostCard postContent />
-          <PostCard postImage />
-          <PostCard postContent />
-          <PostCard postImage />
+          {[
+            {
+              id: "eyeyeyeyeyye",
+              postImage:
+                "https://therenegadecoder.com/wp-content/uploads/2020/05/python-input-output.png",
+              postContent: "New Design",
+              userName: "Jared Dunn",
+            },
+            {
+              id: "hdhdkd",
+              postContent: "Js is the new trend",
+            },
+          ].map((e) => (
+            <PostCard key={e.postImage} props={e} />
+          ))}
         </div>
-      </div>
-    </div>
-  );
-}
-
-function UserTile() {
-  return (
-    <div className="flex flex-row p-2">
-      <div className=" w-10 h-10 relative rounded-full border cursor-pointer border-teal-500">
-        <Image
-          src="https://firebasestorage.googleapis.com/v0/b/fleeke-ebe0e.appspot.com/o/webAssets%2FWhatsApp%20Image%202020-02-17%20at%2011.44.18%20AM.jpeg?alt=media&token=ed3e9338-bbdd-4b6e-94db-8822931e6b83"
-          alt="nitesh bhagat"
-          layout="fill" // required
-          objectFit="cover"
-          className="rounded-full "
-        />
-      </div>
-      {/* details col */}
-      <div className="flex-col flex -space-y-1 px-2">
-        <span className="font-medium">Nitesh Bhagat</span>
-        <span className="text-sm">@nitesh.bhagat</span>
       </div>
     </div>
   );
