@@ -8,18 +8,21 @@ export default function HomeTab() {
     <div className="flex flex-row w-full space-x-2 sm:p-2  bg-white sm:bg-[#fbfbfb]">
       {/* feed */}
       <div className="flex-col flex w-full sm:w-3/5">
-        <PostCard postImage />
-        <PostCard postContent />
-        <PostCard postContent />
-        <PostCard postImage />
-        <PostCard postImage />
-        <PostCard postContent />
-        <PostCard postContent />
-        <PostCard postImage />
-        <PostCard postImage />
-        <PostCard postContent />
-        <PostCard postContent />
-        <PostCard postImage />
+        {[
+          {
+            id: "eyeyeyeyeyye",
+            postImage:
+              "https://therenegadecoder.com/wp-content/uploads/2020/05/python-input-output.png",
+            postContent: "New Design",
+            userName: "Jared Dunn",
+          },
+          {
+            id: "hdhdkd",
+            postContent: "Js is the new trend",
+          },
+        ].map((e) => (
+          <PostCard key={e.postImage} props={e} />
+        ))}
       </div>
       {/* groups */}
       <div className="relative flex-1">
