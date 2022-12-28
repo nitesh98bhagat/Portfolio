@@ -1,17 +1,20 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { AiFillCaretUp, AiOutlineCaretDown } from "react-icons/ai";
 import { BsFillChatFill } from "react-icons/bs";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { HiArrowPath } from "react-icons/hi2";
 
 export default function PostCard({ props }) {
-  const { profilePicture, postImage, postContent, userName, time } = props;
+  const { postImage, postContent, userName, time } = props;
+  const [upbit, setUpbit] = useState("none");
+
   return (
-    <div className="flex flex-row p-1 my-2 border-b  space-x-2">
+    <div className="flex flex-row pb-3 mb-3 border-b  space-x-2">
       {/* content area */}
       <div className="flex flex-col  flex-1 justify-start items-start space-y-1">
         {/* profile header */}
-        <p className=" flex flex-row   items-center w-full space-x-2">
+        <div className=" flex flex-row   items-center w-full space-x-2">
           <div className=" w-8 h-8 relative z-10 rounded-full border  border-teal-500">
             <Image
               src={
@@ -35,10 +38,12 @@ export default function PostCard({ props }) {
           <div className="px-0.5" />
           {/* more options */}
           <FiMoreHorizontal size={25} className="text-slate-600" />
-        </p>
+        </div>
 
         {/* Caption */}
-        {postContent && <h1 className="text-lg py-1">{postContent ?? ""}</h1>}
+        {postContent && (
+          <h1 className="text-base sm:text-base py-2">{postContent ?? ""}</h1>
+        )}
 
         {/* Post Picture */}
         {postImage && (
@@ -64,16 +69,26 @@ export default function PostCard({ props }) {
         </div>
       </div>
       {/* Upbit/downbit */}
-      <div className="flex-col justify-center border rounded-lg items-center flex  overflow-hidden text-slate-500">
+      <div className="flex-col justify-center border rounded-lg items-center flex cursor-pointer overflow-hidden text-slate-500">
         {/* upbit */}
-        <div className="flex flex-col items-center justify-center flex-1 p-1">
+        <div
+          className={`flex flex-col items-center justify-center flex-1 p-1 ${
+            upbit === true ? "bg-green-100 text-green-500" : ""
+          }`}
+          onClick={() => setUpbit(true)}
+        >
           <AiFillCaretUp className="py-auto" size={25} />
           <span className="text-xs ">25.6k</span>
         </div>
         {/* divider */}
         <div className=" border w-full" />
         {/* downbit */}
-        <div className="flex flex-col items-center justify-center flex-1 p-1 ">
+        <div
+          className={`flex flex-col items-center justify-center flex-1 p-1 cursor-pointer ${
+            upbit === false ? "bg-red-100 text-red-500" : ""
+          }`}
+          onClick={() => setUpbit(false)}
+        >
           <span className="text-xs ">1.21k</span>
           <AiOutlineCaretDown size={25} />
         </div>

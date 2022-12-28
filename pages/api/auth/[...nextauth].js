@@ -9,4 +9,8 @@ export default NextAuth({
     }),
   ],
   secret: process.env.JWT_SECRET,
+  pages: {
+    signIn: "/auth/signin",
+    newUser: "/auth/new-user",
+  },
 });

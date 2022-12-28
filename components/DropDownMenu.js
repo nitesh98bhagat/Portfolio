@@ -55,7 +55,7 @@ export default function DropDownMenu({ displayName, displayImage }) {
                 {
                   title: "My Profile",
                   icon: <GoPerson size={20} />,
-                  link: "/profile",
+                  link: "/myprofile",
                 },
                 {
                   title: "Settings",

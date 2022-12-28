@@ -20,7 +20,7 @@ import TechnologyTab from "../components/TechnologyTab";
 import AboutTab from "../components/About";
 import { useSession } from "next-auth/react";
 
-export default function ProfilePage() {
+export default function UserPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { data: session, status } = useSession();

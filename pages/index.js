@@ -22,6 +22,15 @@ function HomePage() {
             id: "hdhdkd",
             postContent: "Js is the new trend",
           },
+          {
+            id: "whejeirpokcdkd",
+            postContent: "Flutter is Great, But feels a little janky ",
+          },
+          {
+            id: "1ttu38wssji",
+            postContent:
+              "What I’ve achieved at @getstream_io in 2022. Contributed to increasing monthly downloads of Stream Android SDK by more than 6 times. Published new 12 open-source libraries & projects. Published 13 global blog posts and 8 regional blog posts. Attended 9 conferences.",
+          },
         ].map((e) => (
           <PostCard key={e.postImage} props={e} />
         ))}
