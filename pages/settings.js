@@ -1,7 +1,7 @@
 import React from "react";
 import { FcSettings } from "react-icons/fc";
 
-function Settngs() {
+function Settings() {
   return (
     <div className="bg-[#fbfbfb] w-3/4 h-screen flex flex-col items-center justify-center">
       <FcSettings size={50} />
@@ -10,4 +10,4 @@ function Settngs() {
   );
 }
 
-export default Settngs;
+export default Settings;

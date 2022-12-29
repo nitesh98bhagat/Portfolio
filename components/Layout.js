@@ -5,7 +5,12 @@ import Header from "./Header";
 
 export default function Layout({ children }) {
   const router = useRouter();
-  const showHeader = router.pathname === "/auth/signin" ? false : true;
+  const showHeader =
+    router.pathname === "/auth/signin"
+      ? false
+      : true && router.pathname === "/help-center"
+      ? false
+      : true;
 
   return (
     <div

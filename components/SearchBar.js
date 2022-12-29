@@ -26,7 +26,7 @@ export default function SearchBar() {
 
   const handleOnChangeCombobox = (e) => {
     setSelectedPerson(e);
-    router.push(`/user?${e}`);
+    router.push(`/users?uid=${e}`);
   };
 
   return (

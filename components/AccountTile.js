@@ -4,7 +4,7 @@ import { MdLocationOn, MdVerified } from "react-icons/md";
 
 export default function AccountTile() {
   return (
-    <Link href={"/alex.chacon"}>
+    <Link href={"/account?user=alex.chacon"}>
       <div className="overflow-hidden  items-center flex flex-row  h-24 border border-slate-100 rounded-2xl hover:bg-stone-100 cursor-pointer ">
         {/* profile picture */}
         <img

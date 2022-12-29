@@ -1,11 +1,14 @@
 import Link from "next/link";
 
-export default function GroupTile() {
+export default function GroupTile({ props }) {
+  const { groupName, groupId, groupDp, members } = props;
   return (
     <Link href={`/group?id=hjehjehj`}>
       <div className="overflow-hidden justify-between items-center flex flex-row  h-20 border border-slate-100 rounded-lg cursor-pointer bg-stone-50 ">
         <div className=" flex flex-col p-5 flex-1">
-          <p className="text-base font-bold pb-1">{"React Developers"}</p>
+          <p className="text-base font-bold pb-1 line-clamp-1">
+            {groupName ?? "React Developers"}
+          </p>
           <div className="flex flex-row items-center">
             <div className="flex-row flex -space-x-2">
               {[
@@ -21,11 +24,11 @@ export default function GroupTile() {
                 />
               ))}
             </div>
-            <span className="text-sm">1.4k members</span>
+            <span className="text-sm">{members ?? "1.4k"} members</span>
           </div>
         </div>
         <img
-          src={"https://miro.medium.com/max/1100/0*PYIfVeHV1Qd32X31"}
+          src={groupDp ?? "https://miro.medium.com/max/1100/0*PYIfVeHV1Qd32X31"}
           alt="flutter"
           className="h-32 aspect-square -mr-3 object-cover rounded-full "
         />

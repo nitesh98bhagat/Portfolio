@@ -69,21 +69,21 @@ export default function PostCard({ props }) {
         </div>
       </div>
       {/* Upbit/downbit */}
-      <div className="flex-col justify-center border rounded-lg items-center flex cursor-pointer overflow-hidden text-slate-500">
+      <div className="flex-col justify-center border rounded-lg items-center flex  overflow-hidden text-slate-500">
         {/* upbit */}
-        <div
-          className={`flex flex-col items-center justify-center flex-1 p-1 ${
+        <button
+          className={`flex flex-col items-center cursor-pointer justify-center flex-1 p-1 ${
             upbit === true ? "bg-green-100 text-green-500" : ""
           }`}
           onClick={() => setUpbit(true)}
         >
           <AiFillCaretUp className="py-auto" size={25} />
           <span className="text-xs ">25.6k</span>
-        </div>
+        </button>
         {/* divider */}
         <div className=" border w-full" />
         {/* downbit */}
-        <div
+        <button
           className={`flex flex-col items-center justify-center flex-1 p-1 cursor-pointer ${
             upbit === false ? "bg-red-100 text-red-500" : ""
           }`}
@@ -91,7 +91,7 @@ export default function PostCard({ props }) {
         >
           <span className="text-xs ">1.21k</span>
           <AiOutlineCaretDown size={25} />
-        </div>
+        </button>
       </div>
     </div>
   );

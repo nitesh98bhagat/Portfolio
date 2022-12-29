@@ -1,7 +1,7 @@
 import React from "react";
 
 function NewUserPage() {
-  return <div>NewUserPage</div>;
+  return <div className="bg-[#fbfbfb]">welcome new user</div>;
 }
 
 export default NewUserPage;

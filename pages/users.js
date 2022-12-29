@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import AccountTile from "../components/AccountTile";
 
 export default function UserPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
+  const { uid } = router.query;
 
   return (
     <div className="flex flex-col sm:flex-row w-full sm:w-3/4 bg-[#fbfbfb]  ">
@@ -17,7 +20,7 @@ export default function UserPage() {
               key={e}
               className={`py-3 px-5 sm:px-8 cursor-pointer border-b-2 sm:border-b-0 ${
                 currentIndex === i
-                  ? "font-bold text-teal-500 bg-transparent border-teal-500 sm:bg-teal-100 sm:hover:bg-teal-100  "
+                  ? "font-bold text-teal-500 border-r-4 bg-transparent border-teal-500 sm:bg-teal-100 sm:hover:bg-teal-100  "
                   : "hover:bg-stone-100"
               }  text-base`}
               onClick={() => setCurrentIndex(i)}

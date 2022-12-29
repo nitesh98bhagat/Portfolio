@@ -19,9 +19,13 @@ import EducationTab from "../components/EducationTab";
 import TechnologyTab from "../components/TechnologyTab";
 import AboutTab from "../components/About";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function UserPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const router = useRouter();
+  const { user } = router.query;
 
   const { data: session, status } = useSession();
 
@@ -63,7 +67,7 @@ export default function UserPage() {
             <MdVerified className="text-teal-500" />
           </h1>
           <h1 className="text-sm sm:text-base font-base text-slate-500">
-            Software Developer
+            Software Developer {user}
           </h1>
           {/* location */}
           <div className="flex flex-row items-center text-slate-500 space-x-1">

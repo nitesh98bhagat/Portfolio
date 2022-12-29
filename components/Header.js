@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearchBar } from "../app/globalConstantSlice";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { FaSignOutAlt } from "react-icons/fa";
+import { VscBell } from "react-icons/vsc";
 import DropDownMenu from "./DropDownMenu";
 
 function Header() {
@@ -72,6 +72,7 @@ function Header() {
             />
             {session ? (
               <>
+                <VscBell />
                 {/* <BsFillPeopleFill /> */}
                 {/* <BsFillBriefcaseFill /> */}
                 {/* <BsFillChatTextFill /> */}

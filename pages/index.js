@@ -31,6 +31,10 @@ function HomePage() {
             postContent:
               "What I’ve achieved at @getstream_io in 2022. Contributed to increasing monthly downloads of Stream Android SDK by more than 6 times. Published new 12 open-source libraries & projects. Published 13 global blog posts and 8 regional blog posts. Attended 9 conferences.",
           },
+          {
+            id: "shwjhwjhjks",
+            postContent: "Writing Readme is an art.",
+          },
         ].map((e) => (
           <PostCard key={e.postImage} props={e} />
         ))}
@@ -66,19 +70,27 @@ function HomePage() {
             <BsFillPeopleFill /> <span>Group</span>
           </h1>
           {/* group tile */}
-          <GroupTile />
-          <GroupTile />
-          <GroupTile />
+          {[
+            {
+              groupName: "React Developer Community",
+              groupId: "dgheheufjd",
+              groupDp: "https://miro.medium.com/max/1100/0*PYIfVeHV1Qd32X31",
+              members: "1,545",
+            },
+          ].map((e) => (
+            <GroupTile key={e.groupId} props={e} />
+          ))}
+
           <div className="flex flex-wrap w-full   bg-white sm:bg-[#fbfbfb] space-x-5 p-1 items-center  justify-center">
             {[
-              { title: "About" },
-              { title: "Testing" },
-              { title: "Blog" },
-              { title: "Help Center" },
-              { title: "Term of Use" },
-              { title: "Privacy & Policy" },
+              { link: "about", title: "About" },
+              { link: "testing", title: "Testing" },
+              { link: "blogs", title: "Blogs" },
+              { link: "help-center", title: "Help Center" },
+              { link: "terms-of-use", title: "Term of Use" },
+              { link: "privacy-&-policy", title: "Privacy & Policy" },
             ].map((e) => (
-              <Link key={e.title} href={`/${e.title.toLowerCase()}`}>
+              <Link key={e.title} href={`/${e.link}`}>
                 <p className="text-slate-500 cursor-pointer ">{e.title}</p>
               </Link>
             ))}
