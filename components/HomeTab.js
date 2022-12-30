@@ -29,9 +29,16 @@ export default function HomeTab() {
         <div className="flex-col hidden space-y-1 sm:flex  bg-[#fbfbfb]  sticky top-28  rounded-lg p-1 ">
           <h1 className="text-xl p-1 font-medium">Groups</h1>
           {/* group tile */}
-          <GroupTile />
-          <GroupTile />
-          <GroupTile />
+          {[
+            {
+              groupName: "React Developer Community",
+              groupId: "dgheheufjd",
+              groupDp: "https://miro.medium.com/max/1100/0*PYIfVeHV1Qd32X31",
+              members: "1,545",
+            },
+          ].map((e) => (
+            <GroupTile key={e.groupId} props={e} />
+          ))}
           {/* <div className="flex flex-wrap w-full   bg-white sm:bg-[#fbfbfb] space-x-5 p-3 items-center  justify-center">
             {[
               { title: "About" },

@@ -21,7 +21,7 @@ function SignInPage() {
         <button
           onClick={() =>
             signIn("google", {
-              callbackUrl: "/",
+              callbackUrl: "https://nitesh-bhagat.vercel.app/",
             })
           }
           className="p-2 border w-full hover:bg-slate-200 rounded-lg flex flex-row justify-center items-center space-x-3 hover:font-semibold"
